@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% if ticket %}
+        <h1>{{ ticket.title }}</h1>
+        <img src="{{ ticket.image }}" alt="">
+        <p>{{ ticket.description }}</p>
+    {% endif %}
+{% endblock %}
