@@ -1,14 +1,17 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 from book_review.forms import TicketForm
 from book_review.models import Ticket
 
 
+@login_required()
 def list_reviews(request):
     vals = {'tickets': Ticket.objects.all()}
     return render(request, 'list_reviews.html', vals)
 
 
+@login_required()
 def create_ticket(request, ticket_id=None):
     instance_ticket = Ticket.objects.get(pk=ticket_id) if ticket_id is not None else None
     if request.method == 'GET':
@@ -18,13 +21,16 @@ def create_ticket(request, ticket_id=None):
         form = TicketForm(request.POST, instance=instance_ticket)
         if form.is_valid():
             ticket = form.save()
-            return redirect('list_reviews')
+    return redirect('list_reviews')
 
 
+@login_required()
 def view_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, pk=ticket_id)
     return render(request, 'view_ticket.html', locals())
 
+
+@login_required()
 def delete_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, pk=ticket_id)
     ticket.delete(ticket_id)

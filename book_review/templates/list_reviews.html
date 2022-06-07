@@ -1,10 +1,10 @@
-{% extends 'main.html' %}
+{% extends 'index.html' %}
 {% block content %}
     {% if tickets %}
         <ul>
             {% for ticket in tickets %}
                 <li>{{ ticket.title }} | <a href="
-{% url 'create_ticket' ticket_id=ticket.id %}">Modifier</a></li>
+                {% url 'create_ticket' ticket_id=ticket.id %}">Modifier</a></li>
             {% endfor %}
         </ul>
     {% else %}

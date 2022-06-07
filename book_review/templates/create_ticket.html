@@ -1,4 +1,4 @@
-{% extends 'main.html' %}
+{% extends 'index.html' %}
 {% block content %}
     {% if form.instance.id %}
         <form method="post" action="{% url 'create_ticket' ticket_id=form.instance.id %}">
