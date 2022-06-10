@@ -1,12 +1,20 @@
 {% extends 'index.html' %}
 {% block content %}
+        <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 text-center my-5">
+            <h3 class="text-center mb-4">Create Ticket</h3>
+
     {% if form.instance.id %}
-        <form method="post" action="{% url 'create_ticket' ticket_id=form.instance.id %}">
+        <form method="post" class="text-start" action="{% url 'create_ticket' ticket_id=form.instance.id %}">
     {% else %}
-        <form method="post" action="{% url 'create_ticket' %}">
+        <form method="post" class="text-start" action="{% url 'create_ticket' %}">
     {% endif %}
 {% csrf_token %}
-{{ form }}
+{{ form.as_p }}
 <input type="submit"/>
 </form>
+                 </div>
+    </div>
+
 {% endblock %}

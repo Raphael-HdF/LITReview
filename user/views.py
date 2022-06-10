@@ -36,13 +36,9 @@ def register_user(request):
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password1"]
             user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.success(request, _("You have been registered."))
-                return redirect('list_reviews')
-            else:
-                messages.warning(request, _("Registration has failed."))
-                return redirect('register_user')
+            login(request, user)
+            messages.success(request, _("You have been registered."))
+            return redirect('list_reviews')
     else:
         form = UserRegistrationForm()
-        return render(request, 'authentification/register.html', locals())
+    return render(request, 'authentification/register.html', locals())
