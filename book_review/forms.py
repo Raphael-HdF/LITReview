@@ -1,5 +1,4 @@
 from django.forms import ModelForm
-
 from book_review.models import Ticket
 
 

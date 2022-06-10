@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        There is an error on your form
+    </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 text-center my-5">
+            <h3 class="text-center mb-4">Register</h3>
+            <form class="text-start" method="post" action="{% url 'register_user' %}">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+{#                <div class="mb-3 text-start">#}
+{#                    <label for="username_id" class="form-label">Username</label>#}
+{#                    <input type="text" class="form-control" id="username_id" name="username">#}
+{#                </div>#}
+{##}
+{#                <div class="mb-3 text-start">#}
+{#                    <label for="email_id" class="form-label">Email</label>#}
+{#                    <input type="email" class="form-control" id="email_id" name="email"#}
+{#                           aria-describedby="emailHelp">#}
+{#                </div>#}
+{#                <div class="mb-3 text-start">#}
+{#                    <label for="password_id" class="form-label">Password</label>#}
+{#                    <input type="password" class="form-control" id="password_id" name="password">#}
+{#                </div>#}
+                <button type="submit" class="btn btn-secondary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -26,12 +26,10 @@ from django.utils.translation import gettext_lazy as _
 class User(AbstractUser, PermissionsMixin):
     email = models.EmailField(_('Email address'), unique=True)
     description = models.TextField(_('User description'), max_length=2048, blank=True)
-    is_active = models.BooleanField(default=False)
+    # is_active = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
-
-    # objects = UserManager()
 
     def __str__(self):
         return self.username
