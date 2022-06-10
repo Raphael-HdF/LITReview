@@ -20,7 +20,9 @@ def create_ticket(request, ticket_id=None):
     elif request.method == 'POST':
         form = TicketForm(request.POST, instance=instance_ticket)
         if form.is_valid():
-            ticket = form.save()
+            ticket = form.save(commit=False)
+            ticket.user = request.user
+            ticket.save()
     return redirect('list_reviews')
 
 
