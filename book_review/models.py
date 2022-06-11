@@ -35,6 +35,9 @@ class UserFollows(models.Model):
     followed_user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE,
                                       related_name='followed_by')
 
+    def __str__(self):
+        return self.user.username + ' - ' + self.followed_user.username
+
     class Meta:
         # ensures we don't get multiple UserFollows instances
         # for unique user-user_followed pairs

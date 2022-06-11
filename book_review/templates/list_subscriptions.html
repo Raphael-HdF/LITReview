@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 text-center my-5">
+
+            <h3>Follow New Users</h3>
+            <form method="post" class="text-start mb-4" action="{% url 'list_subscriptions' %}">
+                {% csrf_token %}
+                <input name="follower" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+
+            </form>
+
+            {% if find_followers %}
+                <div>
+                    {% for find_follower in find_followers %}
+                        <p class="text-sucess d-flex align-items-center justify-content-center">{{ find_follower }}
+                            <a class="material-symbols-outlined text-decoration-none"
+                                   href="{% url 'add_follow' follow_id=find_follower.id %}"
+                                >done</a>
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        {% if followed_users %}
+            <div class="col-12 col-md-6 text-center my-5">
+                <h3>Followed Users</h3>
+                <table class="table mb-5">
+                    {% for followed_user in followed_users %}
+                        <tr>
+                            <td class="d-flex align-items-center justify-content-center"
+                            >{{ followed_user.followed_user }}
+                                <a class="material-symbols-outlined text-danger text-decoration-none"
+                                   href="{% url 'stop_follow' follow_id=followed_user.id %}"
+                                >close</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+
+
+        {% if followers %}
+            <div class="col-12 col-md-6 text-center my-5">
+                <h3>Followers</h3>
+                <table class="table">
+                    {% for follower in followers %}
+                        <tr>
+                            <td>{{ follower.user }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+
+{% endblock %}

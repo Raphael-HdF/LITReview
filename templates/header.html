@@ -20,11 +20,11 @@
                     <a class="nav-link active" href="{% url 'create_ticket' %}">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Abonnements</a>
+                    <a class="nav-link active" href="{% url 'list_subscriptions' %}">Abonnements</a>
                 </li>
                     <li class="nav-item">
                         <a class="nav-link text-center" href="{% url 'logout_user' %}">
-                            <span class="text-capitalize"
+                            <span class="text-capitalize fst-italic fw-light"
                         >{{ user.username }}</span><br>Se déconnecter</a>
 
                     </li>

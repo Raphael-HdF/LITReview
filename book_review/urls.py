@@ -10,4 +10,7 @@ urlpatterns = [
     path('create_ticket/<int:ticket_id>', views.create_ticket, name="create_ticket"),
     path('view_ticket/<int:ticket_id>', views.view_ticket, name="view_ticket"),
     path('delete_ticket/<int:ticket_id>', views.delete_ticket, name="delete_ticket"),
+    path('list_subscriptions', views.list_subscriptions, name="list_subscriptions"),
+    path('stop_follow/<int:follow_id>', views.stop_follow, name="stop_follow"),
+    path('add_follow/<int:follow_id>', views.add_follow, name="add_follow"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
