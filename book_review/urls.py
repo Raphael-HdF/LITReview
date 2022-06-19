@@ -4,7 +4,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.list_reviews, name="list_reviews"),
+    path('', views.feed, name="feed"),
     path('list_reviews', views.list_reviews, name="list_reviews"),
     path('create_ticket', views.create_ticket, name="create_ticket"),
     path('create_ticket/<int:ticket_id>', views.create_ticket, name="create_ticket"),

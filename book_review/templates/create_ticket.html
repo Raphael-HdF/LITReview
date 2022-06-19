@@ -10,9 +10,9 @@
         {% bootstrap_messages %}
 
     {% if form.instance.id %}
-        <form method="post" class="text-start" action="{% url 'create_ticket' ticket_id=form.instance.id %}">
+        <form method="post" class="text-start" action="{% url 'create_ticket' ticket_id=form.instance.id %}" enctype="multipart/form-data">
     {% else %}
-        <form method="post" class="text-start" action="{% url 'create_ticket' %}">
+        <form method="post" class="text-start" action="{% url 'create_ticket' %}" enctype="multipart/form-data">
     {% endif %}
 {% csrf_token %}
 

@@ -16,11 +16,15 @@
             {% if find_followers %}
                 <div>
                     {% for find_follower in find_followers %}
-                        <p class="text-sucess d-flex align-items-center justify-content-center">{{ find_follower }}
-                            <a class="material-symbols-outlined text-decoration-none"
-                                   href="{% url 'add_follow' follow_id=find_follower.id %}"
-                                >done</a>
-                        </p>
+                        <form class=" d-flex align-items-center justify-content-center" method="post" action=
+                                "{% url 'list_subscriptions' %}">
+                            <tr>{{ find_follower }}
+                                {% csrf_token %}
+                                <input type="hidden" name="subscribe" value="{{ find_follower.id }}">
+                                <input type="submit" class="bg-transparent border-0 material-symbols-outlined text-success
+                            text-decoration-none" value="done">
+                            </tr>
+                        </form>
                     {% endfor %}
                 </div>
             {% endif %}
@@ -33,12 +37,17 @@
                 <table class="table mb-5">
                     {% for followed_user in followed_users %}
                         <tr>
-                            <td class="d-flex align-items-center justify-content-center"
-                            >{{ followed_user.followed_user }}
-                                <a class="material-symbols-outlined text-danger text-decoration-none"
-                                   href="{% url 'stop_follow' follow_id=followed_user.id %}"
-                                >close</a>
-                            </td>
+                            <form method="post"
+                                  action="{% url 'list_subscriptions' %}">
+                                <td class="d-flex align-items-center justify-content-center"
+                                >{{ followed_user.followed_user }}
+                                    {% csrf_token %}
+                                    <input type="hidden" name="unscribe" value="{{ followed_user.id }}">
+                                    <input type="submit" class="bg-transparent border-0 material-symbols-outlined
+                                text-danger
+                                text-decoration-none" value="close">
+                                </td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
