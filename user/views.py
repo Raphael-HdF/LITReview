@@ -14,7 +14,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, _("You are now logged in."))
-            return redirect('list_reviews')
+            return redirect('feed')
         else:
             messages.warning(request, _("Authentification has failed."))
             return redirect('login_user')
@@ -38,7 +38,7 @@ def register_user(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, _("You have been registered."))
-            return redirect('list_reviews')
+            return redirect('feed')
     else:
         form = UserRegistrationForm()
     return render(request, 'authentification/register.html', locals())

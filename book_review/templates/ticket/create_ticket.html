@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 text-center my-5">
+
+            {% bootstrap_messages %}
+
+            {% if form.instance.id %}
+                <form method="post" class="text-start" action="{% url 'create_ticket' ticket_id=form.instance.id %}"
+                      enctype="multipart/form-data">
+            {% else %}
+                <form method="post" class="text-start" action="{% url 'create_ticket' %}"
+                      enctype="multipart/form-data">
+            {% endif %}
+            {% csrf_token %}
+
+            {% bootstrap_form form exclude='image' %}
+            {% if image %}
+                <img class="rounded"
+                     style="max-width: 300px; max-height: 300px; width:auto; height:auto"
+                     src="{{ image.url }}">
+            {% endif %}
+            {% bootstrap_field form.image %}
+            {% bootstrap_button button_type="submit" content="OK" %}
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,27 +1,28 @@
 {% extends 'index.html' %}
+{% load i18n %}
 {% block content %}
 
     <div class="row">
         <div class="col-12 col-md-6 text-center my-5">
-            <h3 class="text-center mb-4">Register your self right now</h3>
-            <a href="{% url 'register_user'%}" class="btn btn-secondary">Register</a>
+            <h3 class="text-center mb-4">{% translate "Register your self right now" %}</h3>
+            <a href="{% url 'register_user'%}" class="btn btn-secondary">{% translate "Register" %}</a>
         </div>
 
         <div class="col-12 col-md-6 text-center my-5">
-            <h3 class="text-center mb-4">Login</h3>
+            <h3 class="text-center mb-4">{% translate "Login" %}</h3>
             <form method="post" action="{% url 'login_user' %}">
                 {% csrf_token %}
 
                 <div class="mb-3 text-start">
-                    <label for="email_id" class="form-label">Email</label>
+                    <label for="email_id" class="form-label">{% translate "Email" %}</label>
                     <input type="email" class="form-control" id="email_id" name="username"
                            aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3 text-start">
-                    <label for="password_id" class="form-label">Password</label>
+                    <label for="password_id" class="form-label">{% translate "Password" %}</label>
                     <input type="password" class="form-control" id="password_id" name="password">
                 </div>
-                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="submit" class="btn btn-secondary">{% translate "Submit" %}</button>
 
             </form>
         </div>

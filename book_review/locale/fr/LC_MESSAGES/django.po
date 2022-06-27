@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-27 12:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\book_review\models.py:9
+msgid "Title"
+msgstr "Titre"
+
+#: .\book_review\models.py:10
+msgid "Description"
+msgstr "Description"
+
+#: .\book_review\models.py:11 .\book_review\models.py:38
+msgid "User"
+msgstr "Utilisateur"
+
+#: .\book_review\models.py:12
+msgid "Image"
+msgstr "Image"
+
+#: .\book_review\models.py:13 .\book_review\models.py:42
+msgid "Created time"
+msgstr "Date de création"
+
+#: .\book_review\models.py:31
+msgid "Ticket"
+msgstr "Billet"
+
+#: .\book_review\models.py:33
+msgid "Rating"
+msgstr "Note"
+
+#: .\book_review\models.py:40
+msgid "Headline"
+msgstr "Titre"
+
+#: .\book_review\models.py:41
+msgid "Body"
+msgstr "Corps"
+
+#: .\book_review\models.py:55
+msgid "Follower"
+msgstr "Follower"
+
+#: .\book_review\models.py:58
+msgid "Followed user"
+msgstr "Utilisateur suivi"
+
+#: .\book_review\templates\review\review.html:7
+msgid "You"
+msgstr "Tu"
+
+#: .\book_review\templates\review\review.html:8
+msgid "have answered to the ticket"
+msgstr "a répondu au billet"
+
+#: .\book_review\templates\review\review.html:43
+#: .\book_review\templates\ticket\ticket.html:40
+msgid "Modify"
+msgstr "Modifier"
+
+#: .\book_review\templates\review\review.html:47
+#: .\book_review\templates\ticket\ticket.html:45
+msgid "Delete"
+msgstr "Supprimer"
+
+#: .\book_review\templates\subscription\list_subscriptions.html:10
+msgid "Follow New Users"
+msgstr "Suivre de nouveaux Utilisateurs"
+
+#: .\book_review\templates\subscription\list_subscriptions.html:37
+msgid "Followed Users"
+msgstr "Utilisateurs suivis"
+
+#: .\book_review\templates\subscription\list_subscriptions.html:61
+msgid "Followers"
+msgstr "Followers"
+
+#: .\book_review\templates\ticket\ticket.html:20
+msgid "Post a review"
+msgstr "Ecrire une critique"
+
+#: .\book_review\templates\ticket\ticket.html:27
+msgid "View the review"
+msgstr "Voir la critique"
+
+#: .\book_review\templates\ticket\ticket.html:49
+msgid "asked for a review"
+msgstr "a demandé une critique"
+
+#: .\book_review\views\views_feed.py:48
+msgid "Feed"
+msgstr "Flux"
+
+#: .\book_review\views\views_feed.py:71
+msgid "My Posts"
+msgstr "Mes Posts"
+
+#: .\book_review\views\views_review.py:20
+#: .\book_review\views\views_review.py:49
+msgid "Modify your review"
+msgstr "Modifier ma critique"
+
+#: .\book_review\views\views_review.py:20
+#: .\book_review\views\views_review.py:49
+msgid "Create your review"
+msgstr "Ecrire une critique"
+
+#: .\book_review\views\views_ticket.py:13
+msgid "Modify your ticket"
+msgstr "Modifier mon billet"
+
+#: .\book_review\views\views_ticket.py:13
+msgid "Create your ticket"
+msgstr "Ecrire un billet"

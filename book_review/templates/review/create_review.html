@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 text-center my-5">
+{#            <h3 class="text-center mb-4">Create Review</h3>#}
+
+            {% bootstrap_messages %}
+
+            {% if form.instance.id %}
+                <form method="post" class="text-start" action="{% url 'create_review' review_id=form.instance.id %}"
+                      enctype="multipart/form-data">
+            {% else %}
+                <form method="post" class="text-start" action="{% url 'create_review' %}"
+                      enctype="multipart/form-data">
+            {% endif %}
+            {% csrf_token %}
+
+            {% bootstrap_form ticket_form exclude='image' %}
+            {% if ticket_form.image %}
+                <img class="rounded"
+                     style="max-width: 300px; max-height: 300px; width:auto; height:auto"
+                     src="{{ image.url }}">
+            {% endif %}
+            {% bootstrap_field ticket_form.image %}
+
+            {% bootstrap_form review_form %}
+
+            {% bootstrap_button button_type="submit" content="OK" %}
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

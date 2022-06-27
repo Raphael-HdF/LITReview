@@ -1,8 +1,9 @@
 {% load static %}
+{% load i18n %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'list_reviews'%}">
+        <a class="navbar-brand" href="{% url 'feed' %}">
             <img src="{% static 'img/logo-LitReview.svg' %}" alt="LitReview-Logo" width="30"
                  height="24" class="d-inline-block align-text-top">
             LIT Review</a>
@@ -13,24 +14,38 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-end align-items-md-center">
                 {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'list_reviews' %}">Flux</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'create_ticket' %}">Posts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'list_subscriptions' %}">Abonnements</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'feed' %}">{% translate "Feed" %}</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'create_ticket' %}" id="navbarDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            {% translate "Posts" %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'my_posts' %}">{% translate "My posts" %}</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'create_ticket' %}">{% translate "Create Ticket" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'create_review' %}">{% translate "Create Review" %}</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'list_subscriptions' %}">{% translate "Subscriptions" %}</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-center" href="{% url 'logout_user' %}">
                             <span class="text-capitalize fst-italic fw-light"
-                        >{{ user.username }}</span><br>Se déconnecter</a>
+                            >{{ user.username }}</span><br>{% translate "Logout" %}</a>
 
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'login_user' %}">Se connecter</a>
+                        <a class="nav-link active" href="{% url 'login_user' %}">{% translate "Login" %}</a>
                     </li>
                 {% endif %}
             </ul>

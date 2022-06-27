@@ -1,13 +1,7 @@
 {% extends 'index.html' %}
+{% load i18n %}
 {% load django_bootstrap5 %}
-
 {% block content %}
-
-    {% if form.errors %}
-    <div class="alert alert-danger" role="alert">
-        There is an error on your form
-    </div>
-    {% endif %}
 
     <div class="row justify-content-center">
 
@@ -18,7 +12,7 @@
 
 {%  bootstrap_form  form %}
 
-                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="submit" class="btn btn-secondary">{% translate "Submit" %}</button>
 
             </form>
         </div>

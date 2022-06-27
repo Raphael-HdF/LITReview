@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 text-center my-5">
+
+            {% bootstrap_messages %}
+            <div class="my-4">
+                {% include 'ticket/ticket.html' %}
+            </div>
+            <form method="post" class="text-start">
+                {% csrf_token %}
+
+                {% bootstrap_form form %}
+
+                {% bootstrap_button button_type="submit" content="OK" %}
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

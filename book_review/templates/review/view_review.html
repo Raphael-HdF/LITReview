@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% if reviews %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3 justify-content-center">
+
+        {% for review in reviews %}
+            {% include "review/review.html" %}
+        {% endfor %}
+
+        </div>
+    {% endif %}
+{% endblock %}
