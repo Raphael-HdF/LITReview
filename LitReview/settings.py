@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'book_review',
     'user',
     "django_bootstrap5",
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

@@ -4,15 +4,33 @@
     {% for post in posts %}
         <div class="container row my-4">
 
-        {% if post.content_type == 'TICKET' %}
-            {% with post as ticket %}
-            {% include 'ticket/ticket.html' %}
-            {% endwith %}
-        {% elif post.content_type == 'REVIEW' %}
-            {% with post as review %}
-                {% include 'review/review.html' %}
-            {% endwith %}
-        {% endif %}
+            {% if post.content_type == 'TICKET' %}
+                {% with post as ticket %}
+                    {% include 'ticket/ticket.html' %}
+                {% endwith %}
+            {% elif post.content_type == 'REVIEW' %}
+                {% with post as review %}
+                    {% include 'review/review.html' %}
+                {% endwith %}
+            {% endif %}
         </div>
     {% endfor %}
+
+    <div id="pagination" class="d-flex justify-content-center mt-5 text-muted">
+
+        {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+        {% endif %}
+        <div class="mx-3">Page {{ posts.number }}/{{ posts.paginator.num_pages }}</div>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        {% endif %}
+    </div>
+
+
 {% endblock %}
