@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 12:44+0200\n"
+"POT-Creation-Date: 2022-07-01 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: .\book_review\models.py:9
 msgid "Title"
 msgstr "Titre"
@@ -103,21 +104,21 @@ msgstr "Voir la critique"
 msgid "asked for a review"
 msgstr "a demandé une critique"
 
-#: .\book_review\views\views_feed.py:48
+#: .\book_review\views\views_feed.py:63
 msgid "Feed"
 msgstr "Flux"
 
-#: .\book_review\views\views_feed.py:71
+#: .\book_review\views\views_feed.py:91
 msgid "My Posts"
 msgstr "Mes Posts"
 
-#: .\book_review\views\views_review.py:20
-#: .\book_review\views\views_review.py:49
+#: .\book_review\views\views_review.py:14
+#: .\book_review\views\views_review.py:43
 msgid "Modify your review"
 msgstr "Modifier ma critique"
 
-#: .\book_review\views\views_review.py:20
-#: .\book_review\views\views_review.py:49
+#: .\book_review\views\views_review.py:14
+#: .\book_review\views\views_review.py:43
 msgid "Create your review"
 msgstr "Ecrire une critique"
 

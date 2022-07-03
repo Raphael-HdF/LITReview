@@ -111,10 +111,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 USE_I18N = True
 
-# LANGUAGE_CODE = 'fr'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [
+    ('fr', 'French'),
+    ('en', 'English'),
+]
+
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 LOCALE_PATHS = (
-    os.path.join(os.path.dirname(__file__), "locale"),
+    os.path.join(PROJECT_PATH, '../locale'),
 )
 
 USE_TZ = True

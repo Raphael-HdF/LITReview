@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 13:40+0200\n"
+"POT-Creation-Date: 2022-07-01 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr "Page non trouvée"
 
 #: .\templates\header.html:18
 msgid "Feed"
-msgstr "Flux"
+msgstr "Flou"
 
 #: .\templates\header.html:25
 msgid "Posts"
-msgstr ""
+msgstr "Posts"
 
 #: .\templates\header.html:28
 msgid "My posts"
