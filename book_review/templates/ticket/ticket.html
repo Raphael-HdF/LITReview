@@ -1,4 +1,4 @@
-{%  load i18n %}
+{% load i18n %}
 {% if ticket %}
     <div class="col">
         <div class="card shadow-sm px-4 py-2">
@@ -16,16 +16,16 @@
 
                 {% if not ticket.answered and 'post_review' not in request.environ.PATH_INFO %}
                     <div class="text-end my-3">
-                        <a type="button" class="btn btn-primary" href="{% url 'post_review' ticket.id %}">
+                        <a type="button" class="btn btn-primary" href="{% url 'post_review' ticket_id=ticket.id %}">
                             {% translate "Post a review" %}
                         </a>
                     </div>
                 {% elif ticket.answered and not review %}
                     <div class="text-end my-3">
-                    <a type="button" class="btn btn-secondary" href="
+                        <a type="button" class="btn btn-secondary" href="
 {% url 'view_review' ticket.review_set.last.id %}">
-                        {% translate "View the review" %}
-                    </a>
+                            {% translate "View the review" %}
+                        </a>
                     </div>
                 {% endif %}
 
@@ -34,19 +34,17 @@
                     <div class="btn-group">
 
                         {% if ticket.user == user %}
-                            <form action="{% url 'create_ticket' ticket_id=ticket.id %}">
+                            <a class="btn btn-sm btn-outline-secondary" href=
+                                    "{% url 'create_ticket' ticket_id=ticket.id %}">{% translate "Modify" %}</a>
+                            <form action="{% url 'delete_ticket' %}">
                                 {% csrf_token %}
-                                <input type="submit" class="btn btn-sm btn-outline-secondary"
-                                       value="{% translate "Modify" %}">
-                            </form>
-                            <form action="{% url 'delete_ticket' ticket_id=ticket.id %}">
-                                {% csrf_token %}
+                                <input type="hidden" name="delete_ticket_id" value="{{ ticket.id }}">
                                 <input type="submit" class="btn btn-sm btn-outline-danger"
                                        value="{% translate "Delete" %}">
                             </form>
                         {% else %}
                             <small class="text-muted">{{ ticket.user }}
-                            {% translate "asked for a review" %}
+                                {% translate "asked for a review" %}
                             </small>
                         {% endif %}
                     </div>

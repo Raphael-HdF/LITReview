@@ -24,7 +24,7 @@ msgstr "Page non trouvée"
 
 #: .\templates\header.html:18
 msgid "Feed"
-msgstr "Flou"
+msgstr "Flux"
 
 #: .\templates\header.html:25
 msgid "Posts"

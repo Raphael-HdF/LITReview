@@ -38,12 +38,11 @@
                     <div class="btn-group">
 
                         {% if review.user == user %}
-                            <form action="{% url 'post_review' ticket.id %}">
+                            <a class="btn btn-sm btn-outline-secondary" href=
+                                    "{% url 'post_review' ticket_id=ticket.id review_id=review.id %}">{% translate "Modify" %}</a>
+                            <form action="{% url 'delete_review' %}" method="post">
                                 {% csrf_token %}
-                                <input type="submit" class="btn btn-sm btn-outline-secondary" value="{% translate "Modify" %}">
-                            </form>
-                            <form action="{% url 'delete_review' review_id=review.id %}">
-                                {% csrf_token %}
+                                <input type="hidden" name="delete_review_id" value="{{ review.id }}">
                                 <input type="submit" class="btn btn-sm btn-outline-danger" value="{% translate "Delete" %}">
                             </form>
                         {% endif %}

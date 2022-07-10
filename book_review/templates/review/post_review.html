@@ -7,15 +7,39 @@
         <div class="col-12 col-md-6 text-center my-5">
 
             {% bootstrap_messages %}
-            <div class="my-4">
-                {% include 'ticket/ticket.html' %}
-            </div>
-            <form method="post" class="text-start">
-                {% csrf_token %}
 
-                {% bootstrap_form form %}
+            {% if ticket_form.instance.id %}
+                <div class="my-4">
+                    {% include 'ticket/ticket.html' %}
+                </div>
 
-                {% bootstrap_button button_type="submit" content="OK" %}
+                {% if review_form.instance.id %}
+                    <form method="post" class="text-start" action="
+                {% url 'post_review' ticket_id=ticket_form.instance.id review_id=review_form.instance.id %}"
+                          enctype="multipart/form-data">
+                {% else %}
+                    <form method="post" class="text-start" action="
+                {% url 'post_review' ticket_id=ticket_form.instance.id %}"
+                          enctype="multipart/form-data">
+                {% endif %}
+
+            {% else %}
+                <form method="post" class="text-start" action="{% url 'post_review' %}"
+                      enctype="multipart/form-data">
+                {% bootstrap_form ticket_form exclude='image' %}
+                {% if ticket_form.image %}
+                    <img class="rounded"
+                         style="max-width: 300px; max-height: 300px; width:auto; height:auto"
+                         src="{{ image.url }}">
+                {% endif %}
+                {% bootstrap_field ticket_form.image %}
+            {% endif %}
+            {% csrf_token %}
+
+
+            {% bootstrap_form review_form %}
+
+            {% bootstrap_button button_type="submit" content="OK" %}
 
             </form>
         </div>
